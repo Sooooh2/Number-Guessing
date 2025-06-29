@@ -30,12 +30,6 @@ def easy(target):
             print("Incorrect! The number is greater than ",guess)
         elif guess == target :
             print("Congratulations! You guessed the correct number in",attempts,"attempts.")
-
-            #timer ends and the total time taken
-            end = time.time() 
-            duration = end - start 
-            print(f"You guessed the correct number in {duration:.2f} seconds" )
-
             #updating the score trakcer
             if easy_score is None or easy_score > attempts:
                 easy_score = attempts
@@ -43,12 +37,20 @@ def easy(target):
             break
         else :
             print("Incorrect! The number is less than ",guess)
+        
+      
+       
 
         #hint for the player
         if max_attempts - attempts == 3:
             low = max(1,target-5)
             high = min(target +5, 100)
             print(f"The target is between numbers {low} and {high}") 
+    #timer ends and the total time taken
+    end = time.time() 
+    duration = end - start 
+    print(f"The round completed in {duration:.2f} seconds" )
+    
     if attempts == max_attempts and guess != target:
         print("You couldn't guess the number in specified amount of attempts given. ")
  
@@ -87,7 +89,13 @@ def mid(target):
         if max_attempts - attempts == 2:
             low = max(1,target-5)
             high = min(target +5, 100)
-            print(f"The target is between numbers {low} and {high}")         
+            print(f"The target is between numbers {low} and {high}")     
+
+    #timer ends and the total time taken
+    end = time.time() 
+    duration = end - start 
+    print(f"The round completed in {duration:.2f} seconds" )  
+
     if attempts == max_attempts and guess != target:
         print("You couldn't guess the number in specified amount of attempts given. ")
 
@@ -121,10 +129,15 @@ def hard(target):
             print("Incorrect! The number is less than ",guess)
 
         #hinting the player 
-        if max_attempts - attempts == 2:
+        if max_attempts - attempts == 1:
             low = max(1,target-5)
             high = min(target +5, 100)
             print(f"The target is between numbers {low} and {high}") 
+
+    #timer ends and the total time taken
+    end = time.time() 
+    duration = end - start 
+    print(f"The round completed in {duration:.2f} seconds" )  
 
     if attempts == max_attempts and guess != target:
         print("You couldn't guess the number in specified amount of attempts given. ")
